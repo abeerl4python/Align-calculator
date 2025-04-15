@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="#F5F0FF"
+    android:padding="16dp">
+
+    <!-- App Title -->
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Align"
+        android:textColor="#E084B6"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <!-- Top Right Plus Button -->
+    <ImageButton
+        android:id="@+id/btnPlus"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_toStartOf="@id/btnInfo"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/btngradientstyle"
+        android:src="@drawable/plusicon"
+        android:padding="10px"
+        android:scaleType="fitCenter"
+        android:contentDescription="Add new item" />
+
+    <!-- Top Right Info Button -->
+    <ImageButton
+        android:id="@+id/btnInfo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/btngradientstyle"
+        android:src="@drawable/infoicon"
+        android:padding="10px"
+        android:scaleType="fitCenter"
+        android:contentDescription="Information" />
+
+    <!-- Goal Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvAppTitle"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Goal Header -->
+            <LinearLayout
+                android:id="@+id/layoutGoalHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivGoalIcon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_laptop" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvGoalTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New MacBook Pro"
+                        android:textColor="#FF9CD3"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvGoalAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Goal: AED 12,000"
+                        android:textColor="#AA6DC9"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Delete"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="fitCenter"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_delete" />
+
+                <TextView
+                    android:id="@+id/tvPercentage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="38%"
+                    android:textColor="#AA6DC9"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Deadline -->
+            <TextView
+                android:id="@+id/tvDeadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutGoalHeader"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="8dp"
+                android:text="Deadline: Jul 15, 2025 (94 days left)"
+                android:textColor="#666666"
+                android:textSize="14sp" />
+
+            <!-- Progress Section -->
+            <RelativeLayout
+                android:id="@+id/layoutProgress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvDeadline"
+                android:layout_marginTop="16dp">
+
+                <!-- Progress Circle -->
+                <FrameLayout
+                    android:id="@+id/circleProgressContainer"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp">
+
+                    <!-- Background Circle -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/circle_background" />
+
+                    <!-- Progress Bar -->
+                    <ProgressBar
+                        android:id="@+id/ivProgressCircle"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminate="false"
+                        android:progress="38"
+                        android:progressDrawable="@drawable/circular_progress"
+                        android:rotation="-90" />
+                </FrameLayout>
+
+                <!-- Current and Remaining -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_toEndOf="@id/circleProgressContainer"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Current:"
+                        android:textColor="#E084B6"
+                        android:textSize="16sp"
+                        android:textStyle="italic"/>
+
+                    <TextView
+                        android:id="@+id/tvCurrentAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AED 4,500"
+                        android:textColor="#333333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Remaining:"
+                        android:textColor="#E084B6"
+                        android:textSize="16sp"
+                        android:textStyle="italic"/>
+
+                    <TextView
+                        android:id="@+id/tvRemainingAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AED 7,500"
+                        android:textColor="#333333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- Add Savings Button -->
+            <Button
+                android:id="@+id/btnAddSavings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layoutProgress"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_gradient"
+                android:drawablePadding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="Add Savings"
+                android:textColor="#FFFFFF"
+                app:backgroundTint="@null" />
+
+            <!-- Linear Progress Bar -->
+            <ProgressBar
+                android:id="@+id/linearProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_below="@id/btnAddSavings"
+                android:layout_marginTop="16dp"
+                android:progress="38"
+                android:progressDrawable="@drawable/progress_gradient" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Mood Tracker Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardMood"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardGoal"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvMoodTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="How are you feeling today?"
+                android:textColor="#FF9CD3"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Mood Options -->
+            <HorizontalScrollView
+                android:id="@+id/moodScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMoodTitle"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnMotivated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_gradient"
+                        android:text="Motivated"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/btnHappy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_gradient"
+                        android:text="Happy"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/btnTired"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_gradient"
+                        android:text="Tired"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/btnStressed"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_gradient"
+                        android:text="Stressed"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null" />
+
+                    <Button
+                        android:id="@+id/btnNeutral"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/btn_gradient"
+                        android:text="Neutral"
+                        android:textColor="#FFFFFF"
+                        app:backgroundTint="@null" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Note Input -->
+            <EditText
+                android:id="@+id/etMoodNote"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/moodScrollView"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:gravity="top"
+                android:hint="Add a note about today (optional)"
+                android:padding="12dp"
+                android:textColor="#333333"
+                android:textColorHint="#999999"
+                android:textSize="14sp" />
+
+            <!-- Save Mood Button -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etMoodNote"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="16dp"
+                android:padding="8dp">
+
+                <Button
+                    android:id="@+id/btnSaveMood"
+                    android:layout_width="150dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/btn_gradient"
+                    android:paddingStart="24dp"
+                    android:paddingEnd="24dp"
+                    android:text="Save Mood"
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="@null" />
+            </FrameLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Daily Motivation Card (Optional, based on second image) -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardMood"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvMotivationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_motivation"
+                android:drawablePadding="8dp"
+                android:text="Daily Motivation"
+                android:textColor="#AA6DC9"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMotivationText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvMotivationTitle"
+                android:layout_marginTop="8dp"
+                android:text="Keep that energy up! Your determination is getting you closer to your goal every day! ✨"
+                android:textColor="#333333"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

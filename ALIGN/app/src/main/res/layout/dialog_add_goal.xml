@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Goal Title:"
+        android:textColor="#AA6DC9"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/etGoalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="e.g. New MacBook Pro"
+        android:inputType="text"
+        android:padding="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#999999" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Target Amount (AED):"
+        android:textColor="#AA6DC9"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/etGoalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:hint="e.g. 12000"
+        android:inputType="numberDecimal"
+        android:padding="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#999999" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Deadline:"
+        android:textColor="#AA6DC9"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/etGoalDeadline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_background"
+        android:focusable="false"
+        android:hint="Select deadline date"
+        android:padding="12dp"
+        android:textColor="#333333"
+        android:textColorHint="#999999" />
+
+</LinearLayout>
